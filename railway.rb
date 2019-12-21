@@ -52,8 +52,7 @@ class Train
 
   TYPE = [:passenger, :cargo]
 
-  attr_accessor :speed, :quantity_car, :stations
-  attr_reader :type, :route, :number_train
+  attr_reader :speed, :quantity_car, :type, :route, :number_train
 
   def initialize(number_train, type, quantity_car)
     @number_train = number_train
@@ -88,7 +87,7 @@ class Train
 
   #Принимает маршрут следования и поезд автоматически помещается на первую станцию
   def train_route=(route)
-    route.stations.first.send_train(self)
+    route.stations.first.take_train(self)
     @route = route
     @index_stations = 0
   end
@@ -141,7 +140,6 @@ train_1 = Train.new(2, "passenger", 5)
 train_2 = Train.new(158, "cargo", 65)
 train_3 = Train.new(10, "cargo", 7)
 p train.add_car
-p train.speed = 100
 p train.delete_car
 train.train_route=(route_1)
 station_2.trains
