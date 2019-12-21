@@ -1,7 +1,6 @@
 class Station
 
-  attr_accessor :name
-  attr_reader :trains
+  attr_reader :name, :trains
 
   def initialize(name)
     @name = name
@@ -29,8 +28,7 @@ end
 
 class Route
 
-  attr_accessor :start_station, :end_station
-  attr_reader :stations
+  attr_reader :start_station, :end_station, :stations
 
   def initialize (start_station, end_station)
     @start_station = start_station
@@ -54,8 +52,8 @@ class Train
 
   TYPE = [:passenger, :cargo]
 
-  attr_accessor :speed, :number_train, :quantity_car, :stations
-  attr_reader :type, :route
+  attr_accessor :speed, :quantity_car, :stations
+  attr_reader :type, :route, :number_train
 
   def initialize(number_train, type, quantity_car)
     @number_train = number_train
